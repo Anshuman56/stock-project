@@ -1,0 +1,64 @@
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { display: flex; height: 100vh; font-family: Arial, sans-serif; background: #0f172a; color: white; }
+
+    #sidebar {
+      width: 220px;
+      background: #1e293b;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    #sidebar h2 { color: #38bdf8; margin-bottom: 15px; font-size: 16px; }
+
+    #sidebar input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      border: none;
+      background: #0f172a;
+      color: white;
+      font-size: 13px;
+    }
+
+    .company-item {
+      padding: 8px 10px;
+      cursor: pointer;
+      border-radius: 6px;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .company-item:hover { background: #38bdf8; color: #0f172a; font-weight: bold; }
+    .company-item.active { background: #38bdf8; color: #0f172a; font-weight: bold; }
+
+    #main {
+      flex: 1;
+      padding: 30px;
+      overflow-y: auto;
+    }
+
+    #stock-title { font-size: 24px; color: #38bdf8; margin-bottom: 10px; }
+
+    #summary-cards {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 15px 20px;
+      border-radius: 10px;
+      flex: 1;
+      text-align: center;
+    }
+
+    .card h4 { color: #94a3b8; font-size: 12px; margin-bottom: 6px; }
+    .card p { font-size: 20px; font-weight: bold; color: #38bdf8; }
+
+    #chart-container {
+      background: #1e293b;
+      border-radius: 10px;
+      padding: 20px;
+    }

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stock Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+  <div id="sidebar">
+    <h2>📈 Companies</h2>
+    <input type="text" id="search" placeholder="Search..." onkeyup="filterList()">
+    <div id="company-list"></div>
+  </div>
+
+  <div id="main">
+    <div id="stock-title">Select a company →</div>
+
+    <div id="summary-cards">
+      <div class="card"><h4>52W High</h4><p id="high">—</p></div>
+      <div class="card"><h4>52W Low</h4><p id="low">—</p></div>
+      <div class="card"><h4>Avg Close</h4><p id="avg">—</p></div>
+    </div>
+
+    <div id="chart-container">
+      <canvas id="myChart"></canvas>
+    </div>
+  </div>
+
+  <script src="/static/index.js"></script>
+
+</body>
+</html>
