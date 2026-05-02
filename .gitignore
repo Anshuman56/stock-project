@@ -1,1 +1,4 @@
-__pycache__
+BhavCopy_NSE_CM_*.csv
+__pycache__/
+*.pyc
+.env
