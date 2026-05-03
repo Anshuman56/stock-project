@@ -62,3 +62,19 @@ def compare_stocks(symbol1: str, symbol2: str):
             "52w_low": stock2["52W_LOW"].min(),
         }
     }
+
+@app.get("/topmovers")
+def top_movers():
+    # Get only the latest date
+    latest_date = df["DATE"].max()
+    latest = df[df["DATE"] == latest_date].fillna(0)
+
+    # Sort by daily return
+    gainers = latest.nlargest(5, "DAILY_RETURN")[["SYMBOL", "CLOSE", "DAILY_RETURN"]]
+    losers = latest.nsmallest(5, "DAILY_RETURN")[["SYMBOL", "CLOSE", "DAILY_RETURN"]]
+
+    return {
+        "date": str(latest_date),
+        "top_gainers": gainers.to_dict(orient="records"),
+        "top_losers": losers.to_dict(orient="records")
+    }

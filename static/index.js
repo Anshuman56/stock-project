@@ -78,4 +78,29 @@
       })
     }
 
-    loadCompanies()
+    async function loadMovers() {
+  const res = await fetch(`${API}/topmovers`)
+  const data = await res.json()
+
+  const gainersDiv = document.getElementById("gainers-list")
+  const losersDiv = document.getElementById("losers-list")
+
+  gainersDiv.innerHTML = data.top_gainers.map(s => `
+    <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #334155;">
+      <span style="font-weight: bold;">${s.SYMBOL}</span>
+      <span style="color: #22c55e;">+${(s.DAILY_RETURN * 100).toFixed(2)}%</span>
+    </div>
+  `).join("")
+
+  losersDiv.innerHTML = data.top_losers.map(s => `
+    <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #334155;">
+      <span style="font-weight: bold;">${s.SYMBOL}</span>
+      <span style="color: #ef4444;">${(s.DAILY_RETURN * 100).toFixed(2)}%</span>
+    </div>
+  `).join("")
+}
+
+// Call both on page load
+loadCompanies()
+loadMovers()
+
